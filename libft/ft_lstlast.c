@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/20 20:40:31 by jraffin           #+#    #+#             */
+/*   Updated: 2020/11/20 23:54:46 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include "libft.h"
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
-	return (0);
+t_list	*ft_lstlast(t_list *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

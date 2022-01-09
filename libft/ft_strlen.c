@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/10/15 16:29:58 by jraffin           #+#    #+#             */
+/*   Updated: 2020/11/27 09:06:54 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include "libft.h"
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
-	return (0);
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/20 21:21:03 by jraffin           #+#    #+#             */
+/*   Updated: 2020/11/20 21:32:23 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include "libft.h"
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
-	return (0);
+void	ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*next;
+
+	while (*lst)
+	{
+		next = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = next;
+	}
 }

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/19 07:48:38 by jraffin           #+#    #+#             */
+/*   Updated: 2021/04/12 04:34:03 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include "libft.h"
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+{
+	while (n > 0 && *((unsigned char *)src) != (unsigned char)c)
+	{
+		*(char *)dest = *(char *)src;
+		dest++;
+		src++;
+		n--;
+	}
+	if (n > 0)
+	{
+		*(char *)dest = *(char *)src;
+		return ((char *)dest + 1);
+	}
 	return (0);
 }

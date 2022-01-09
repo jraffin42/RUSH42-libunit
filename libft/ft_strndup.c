@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/10/22 08:36:15 by jraffin           #+#    #+#             */
+/*   Updated: 2021/08/23 06:01:25 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include <stdlib.h>
+#include "libft.h"
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
-	return (0);
+char	*ft_strndup(const char *s, size_t n)
+{
+	size_t	len;
+	char	*dst;
+
+	len = 0;
+	while (s[len] && len < n)
+		len++;
+	dst = malloc(sizeof(char) * (len + 1));
+	if (dst)
+		ft_strlcpy(dst, s, len + 1);
+	return (dst);
 }

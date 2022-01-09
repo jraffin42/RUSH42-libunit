@@ -1,22 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:34:24 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/20 13:39:10 by jraffin           #+#    #+#             */
+/*   Updated: 2021/06/09 20:01:23 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	int	error;
+#include <unistd.h>
+#include <stdbool.h>
 
-	error = 0;
-	ft_strlen_launcher();
-	bus_error_test_launcher();
-	ft_sum_launcher();
-	return (0);
+void	ft_putnbr_fd(int n, int fd)
+{
+	static char	buf[11];
+	bool		neg;
+	int			i;
+
+	neg = (n < 0);
+	if (n > 0)
+		n = -n;
+	i = 10;
+	buf[i] = '0' - (n % 10);
+	n /= 10;
+	while (n)
+	{
+		buf[--i] = '0' - (n % 10);
+		n /= 10;
+	}
+	if (neg)
+		buf[--i] = '-';
+	if (write(fd, buf + i, 11 - i))
+		NULL;
 }

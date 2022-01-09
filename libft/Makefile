@@ -1,0 +1,128 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/10/24 18:18:02 by jraffin           #+#    #+#              #
+#    Updated: 2022/01/09 16:27:12 by jraffin          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+SHELL			=	/bin/sh
+
+NAME			=	libft.a
+
+SRCDIR			=	.
+OBJDIR			=	./obj
+DEBUGDIR		=	./debugobj
+
+SRCFILES		=	ft_memset.c			\
+					ft_bzero.c			\
+					ft_memcpy.c			\
+					ft_memccpy.c		\
+					ft_memmove.c		\
+					ft_memchr.c			\
+					ft_memcmp.c			\
+					ft_strlen.c			\
+					ft_strnlen.c		\
+					ft_wcslen.c			\
+					ft_wcsnlen.c		\
+					ft_isupper.c		\
+					ft_islower.c		\
+					ft_isalpha.c		\
+					ft_isdigit.c		\
+					ft_isalnum.c		\
+					ft_isascii.c		\
+					ft_isprint.c		\
+					ft_isspace.c		\
+					ft_toupper.c		\
+					ft_tolower.c		\
+					ft_strchr.c			\
+					ft_strchrnul.c		\
+					ft_strrchr.c		\
+					ft_strcmp.c			\
+					ft_strncmp.c		\
+					ft_strlcpy.c		\
+					ft_strlcat.c		\
+					ft_strnstr.c		\
+					ft_atoi.c			\
+					ft_atoi_err.c		\
+					ft_calloc.c			\
+					ft_strdup.c			\
+					ft_strndup.c		\
+					ft_strcpy.c			\
+					ft_substr.c			\
+					ft_strjoin.c		\
+					ft_strtrim.c		\
+					ft_split.c			\
+					ft_itoa.c			\
+					ft_strmapi.c		\
+					ft_putchar_fd.c		\
+					ft_putstr_fd.c		\
+					ft_putendl_fd.c		\
+					ft_putnbr_fd.c		\
+					ft_lstnew.c			\
+					ft_lstadd_front.c	\
+					ft_lstsize.c		\
+					ft_lstlast.c		\
+					ft_lstadd_back.c	\
+					ft_lstdelone.c		\
+					ft_lstclear.c		\
+					ft_lstiter.c		\
+					ft_lstmap.c			\
+					ft_min.c			\
+					ft_max.c			\
+					ft_intlen.c			\
+					ft_get_next_line.c	\
+					ft_put_error.c		\
+					ft_basename.c
+
+SRCS			=	$(addprefix $(SRCDIR)/,$(SRCFILES))
+OBJS			=	$(addprefix $(OBJDIR)/,$(SRCFILES:.c=.o))
+DEBUGOBJS		=	$(addprefix $(DEBUGDIR)/,$(SRCFILES:.c=.o))
+
+CC				=	cc
+CFLAGS			=	-Wall -Wextra -Werror
+AR				=	ar
+ARFLAGS			=	crs
+RM				=	rm -rf
+
+$(OBJDIR)/%.o	:	$(SRCDIR)/%.c | $(OBJDIR)
+	$(CC) $(CFLAGS) -Ofast -c $*.c -o $@
+
+$(DEBUGDIR)/%.o	:	$(SRCDIR)/%.c | $(DEBUGDIR)
+	$(CC) $(CFLAGS) -g -c $*.c -o $@
+
+all				:	$(NAME)
+
+$(NAME)			:	$(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+
+debug			:	$(NAME).debug
+
+$(NAME).debug	:	$(DEBUGOBJS)
+	$(AR) $(ARFLAGS) $(NAME).debug $(DEBUGOBJS)
+
+$(OBJDIR)		:
+	mkdir $(OBJDIR)
+
+$(DEBUGDIR)		:
+	mkdir $(DEBUGDIR)
+
+../tests/test_bin	:
+	$(MAKE) -C ../tests/
+
+test			:	../tests/test_bin
+
+
+clean			:
+	$(RM) $(OBJDIR) $(DEBUGDIR)
+
+fclean			:	clean
+	$(RM) $(NAME) $(NAME).debug
+
+re				:	fclean all
+
+.PHONY			:	all debug test clean fclean re

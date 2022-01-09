@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   00_launcher.c                                      :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 11:48:46 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 12:58:54 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/19 09:41:54 by jraffin           #+#    #+#             */
+/*   Updated: 2021/04/12 04:56:17 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libunit.h"
-#include "tests_ft_strlen.h"
+#include "libft.h"
 
-int	ft_strlen_launcher(void)
+char	*ft_strchr(const char *s, int c)
 {
-	t_unit_test		unit_test;
-	static t_test	test_list[] = {
-		(t_test){"Basic test", &ft_strlen_basic_test},
-		(t_test){"NULL test", &ft_strlen_null_test},
-	{NULL}};
-
-	unit_test.function_name = "ft_strlen";
-	unit_test.test_array = test_list;
-	return (launch_tests(&unit_test));
+	while (*s && *(unsigned char *)s != (unsigned char)c)
+		s++;
+	if (*s || !c)
+		return ((char *)s);
+	return (0);
 }

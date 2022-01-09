@@ -1,20 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:50:09 by jraffin          ###   ########.fr       */
+/*   Created: 2020/11/20 14:11:10 by jraffin           #+#    #+#             */
+/*   Updated: 2021/04/12 04:57:11 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdlib.h>
-#include <unistd.h>
-#include <signal.h>
-#include <sys/wait.h>
-#include <stdlib.h>
 
 char	*ft_strcpy(char *dest, const char *src)
 {
@@ -29,31 +23,4 @@ char	*ft_strcpy(char *dest, const char *src)
 	}
 	*dest = '\0';
 	return (ret);
-}
-
-int	process(void)
-{
-	char	*str = "toto";
-
-	ft_strcpy(str, "pouet");
-	return (!str);
-}
-
-int	main(void)
-{
-	int	wstatus;
-
-	if (!fork())
-		exit(process());
-	wait(&wstatus);
-	if (WIFEXITED(wstatus))
-	{
-		write (1, "EXIT !\n", 7);
-		return (WEXITSTATUS(wstatus));
-	}
-	if (WIFSIGNALED(wstatus))
-	{
-		write (1, "SIGNALED !\n", 11);
-		return (WTERMSIG(wstatus));
-	}
 }

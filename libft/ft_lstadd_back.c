@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_strlen.h                                  :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 13:04:25 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 12:30:42 by schaehun         ###   ########.fr       */
+/*   Created: 2020/11/20 20:46:19 by jraffin           #+#    #+#             */
+/*   Updated: 2020/11/24 06:35:42 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_FT_STRLEN_H
-# define TESTS_FT_STRLEN_H
+#include "libft.h"
 
-# include <stddef.h>
-
-size_t	ft_strlen(const char *str);
-
-int		ft_strlen_launcher(void);
-int		ft_strlen_basic_test(void);
-int		ft_strlen_null_test(void);
-
-#endif
+void	ft_lstadd_back(t_list **alst, t_list *new)
+{
+	if (alst)
+	{
+		if (*alst)
+			ft_lstlast(*alst)->next = new;
+		else
+			*alst = new;
+	}
+}
