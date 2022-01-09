@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:18:02 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/08 19:03:57 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:43:38 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 int	strlen_null_test(void)
 {
-	if (ft_strlen(NULL) == 0)
-		return (0);
-	else
-		return (-1);
+	ft_strlen(NULL);
+	return (0);
 }
