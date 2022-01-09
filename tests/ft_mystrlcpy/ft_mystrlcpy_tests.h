@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_max.c                                           :+:      :+:    :+:   */
+/*   ft_mystrlcpy_tests.h                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/04 13:56:03 by jraffin           #+#    #+#             */
-/*   Updated: 2021/06/10 21:24:23 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:08:51 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 19:25:44 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_max(int a, int b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
+#ifndef FT_MYSTRLCPY_TESTS_H
+# define FT_MYSTRLCPY_TESTS_H
+
+# include <stddef.h>
+
+size_t	ft_mystrlcpy(char *dst, const char *src, size_t size);
+
+int		ft_mystrlcpy_launcher(void);
+int		ft_mystrlcpy_ok_test(void);
+int		ft_mystrlcpy_ko_test(void);
+int		ft_mystrlcpy_sigsegv_test(void);
+int		ft_mystrlcpy_sigbus_test(void);
+
+#endif

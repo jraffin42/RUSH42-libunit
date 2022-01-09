@@ -6,13 +6,13 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:08:14 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 11:35:23 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 19:10:59 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <signal.h>
-#include <wait.h>
+#include <sys/wait.h>
 
 char	*result_msg(int wstatus)
 {

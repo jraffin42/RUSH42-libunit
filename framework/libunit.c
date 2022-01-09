@@ -6,13 +6,13 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 16:35:23 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 19:18:18 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <wait.h>
+#include <sys/wait.h>
 #include <sys/types.h>
 #include "libunit.h"
 
@@ -37,6 +37,7 @@ static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 	write(1, func_name, ft_strlen(func_name));
 	write(1, "\e[0;0m : ", 9);
 	write(1, test_name, ft_strlen(test_name));
+	write(1, " : ", 3);
 	if (!fork())
 		exit(test_func() == -1);
 	wait(&wstatus);

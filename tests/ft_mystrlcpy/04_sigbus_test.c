@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   04_sigbus_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 03:26:28 by jraffin           #+#    #+#             */
-/*   Updated: 2021/04/12 03:51:14 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 17:13:42 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 19:25:53 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mystrlcpy_tests.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_mystrlcpy_sigbus_test(void)
 {
-	while (n)
-	{
-		n--;
-		((char *)s)[n] = 0;
-	}
+	char	*str;
+
+	str = "Ceci est une chaîne non modifiable.";
+	if (ft_mystrlcpy(str, "Ceci est une chaîne de test.", 37) == 29)
+		return (0);
+	else
+		return (-1);
 }

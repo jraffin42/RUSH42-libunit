@@ -1,5 +1,3 @@
-.vscode/
 obj/
-libunit.a
-libunit_test
-libunit_test.debug
+libft_strlcpy.a
+libft_strlcpy.a.test

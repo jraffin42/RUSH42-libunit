@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/22 08:36:15 by jraffin           #+#    #+#             */
-/*   Updated: 2021/04/12 04:57:27 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 19:25:59 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include "ft_mystrlcpy_tests.h"
 
-char	*ft_strdup(const char *s)
+int	ft_mystrlcpy_sigsegv_test(void)
 {
-	char	*dst;
-
-	dst = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (dst)
-		ft_strcpy(dst, s);
-	return (dst);
+	if (ft_mystrlcpy(0, 0, 100) == 29)
+		return (0);
+	else
+		return (-1);
 }

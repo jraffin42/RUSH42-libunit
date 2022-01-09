@@ -6,22 +6,27 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 16:34:26 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 19:24:38 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SHELL				=	/bin/sh
 
-NAME				:=	libunit_testbin
+LIBNAME				:=	libft_strlcpy.a
 
-INCLUDEDIRS			:=
+TESTNAME			:=	$(addsuffix .test,$(LIBNAME))
 
-SRCDIRS				:=	./
+LIBUNIT				:=	../framework/libunit.a
+
+INCLUDEDIRS			:=	.
+
+SRCDIR				:=	.
 
 OBJDIR				:=	./obj
-DEBUGDIR			:=	./debugobj
 
-COMMONSRCS			:=	*.c
+SRCFILES			:=	ft_mystrlcpy.c
+
+TESTFILES			:=	$(wildcard */[0-9][0-9]_*.c)
 
 CC					:=	cc
 AR					:=	ar
@@ -30,45 +35,47 @@ RM					:=	rm
 
 CCFLAGS				:=	-Wall -Wextra -Werror
 
-#SANITIZE			:=	-fsanitize=thread
-#SANITIZE			+=	-fsanitize=address
-#SANITIZE			+=	-fsanitize=undefined
-#SANITIZE			+=	-fsanitize=memory
+DEBUGNAME			:= $(addsuffix .debug,$(LIBNAME))
+DEBUGDIR			:= $(addsuffix .debug,$(OBJDIR))
 
-OUTDIR				:=	$(OBJDIR)
-
-DEBUGNAME			:= $(addsuffix .debug,$(NAME))
-
-ifdef DEBUG
+ifndef DEBUG
+	NAME			:=	$(LIBNAME)
+	OUTDIR			:=	$(OBJDIR)
+else
 	CCFLAGS 		+=	-g
 	NAME			:=	$(DEBUGNAME)
 	OUTDIR			:=	$(DEBUGDIR)
 endif
 
-$(OUTDIR)/%.o		:	$(SRCDIRS)/%.c | $(OUTDIR)
-	echo $@
+$(OUTDIR)/%.o		:	$(SRCDIR)/%.c | $(OUTDIR)
 	@mkdir -p $(dir $@)
-	$(CC) -c $(CCFLAGS) $(SANITIZE) $(addprefix -I ,$(INCLUDEDIRS)) $(addprefix -I ,$(dir $(LIBFT))) $(addprefix -I ,$(dir $(MLX))) $< -o $@
+	$(CC) -c $(CCFLAGS) $(addprefix -I ,$(INCLUDEDIRS)) $(addprefix -I ,$(dir $(LIBUNIT))) $< -o $@
 
-$(NAME)				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o))
-	$(CC) $(CCFLAGS) $(SANITIZE) -o $(NAME) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o)) $(NAME)
+$(NAME)				:	$(addprefix $(OUTDIR)/,$(SRCFILES:.c=.o))
+	$(AR) $(ARFLAGS) $(NAME) $(addprefix $(OUTDIR)/,$(SRCFILES:.c=.o))
 
 all					:	$(NAME)
+	@echo $(OUTDIR)/%.o $(SRCDIR)/%.c
 
-test				:	$(NAME)
-	@./$(NAME) || true
+$(TESTNAME)			:	$(LIBUNIT) main.c $(addprefix $(OUTDIR)/,$(SRCFILES:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o))
+	$(CC) $(CCFLAGS) -o $(TESTNAME) $(addprefix $(OUTDIR)/,$(SRCFILES:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o)) $(addprefix -I ,$(wildcard */)) main.c $(LIBUNIT)
 
-debug				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o))
-	$(CC) $(CCFLAGS) -g $(SANITIZE) -o libunit_test.debug $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o))
+test				:	$(TESTNAME)
+	@./$(TESTNAME) || true
 
 $(OUTDIR)			:
 	mkdir $(OUTDIR)
 
+$(LIBUNIT)			:
+	$(MAKE)	-C	$(dir $(LIBUNIT))
+
 clean				:
 	$(RM) -rf $(OBJDIR) $(DEBUGDIR)
+	$(MAKE)	-C	$(dir $(LIBUNIT)) clean
 
 fclean				:	clean
-	$(RM) -f $(NAME) $(DEBUGNAME) libunit_test
+	$(RM) -f $(NAME) $(LIBNAME) $(DEBUGNAME) $(TESTNAME)
+	$(MAKE)	-C	$(dir $(LIBUNIT)) fclean
 
 re					:	fclean $(NAME)
 

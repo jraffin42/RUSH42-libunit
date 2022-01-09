@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 15:25:41 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 19:11:23 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,11 +33,6 @@ RM					:=	rm
 
 CCFLAGS				:=	-Wall -Wextra -Werror
 
-#SANITIZE			:=	-fsanitize=thread
-#SANITIZE			+=	-fsanitize=address
-#SANITIZE			+=	-fsanitize=undefined
-#SANITIZE			+=	-fsanitize=memory
-
 ifndef DEBUG
 	NAME			:=	$(LIBNAME)
 	OUTDIR			:=	$(OBJDIR)
@@ -48,15 +43,15 @@ else
 endif
 
 $(OUTDIR)/%.o		:	$(SRCDIRS)/%.c | $(OUTDIR)
-	$(CC) -c $(CCFLAGS) $(SANITIZE) $(addprefix -I ,$(INCLUDEDIRS)) $(addprefix -I ,$(dir $(LIBFT))) $(addprefix -I ,$(dir $(MLX))) $< -o $@
+	$(CC) -c $(CCFLAGS) $(addprefix -I ,$(INCLUDEDIRS)) $(addprefix -I ,$(dir $(LIBFT))) $(addprefix -I ,$(dir $(MLX))) $< -o $@
 
 $(NAME)				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o))
-	$(AR) $(ARFLAGS) $(SANITIZE) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o))
+	$(AR) $(ARFLAGS) $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o))
 
 all					:	$(NAME)
 
 bonus				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
-	$(AR) $(ARFLAGS) $(SANITIZE) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
+	$(AR) $(ARFLAGS) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
 
 $(OUTDIR)			:
 	mkdir $(OUTDIR)

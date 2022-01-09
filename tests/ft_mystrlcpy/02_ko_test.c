@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   02_ko_test.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 20:46:19 by jraffin           #+#    #+#             */
-/*   Updated: 2020/11/24 06:35:42 by user42           ###   ########.fr       */
+/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 19:26:32 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_mystrlcpy_tests.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+int	ft_mystrlcpy_ko_test(void)
 {
-	if (alst)
-	{
-		if (*alst)
-			ft_lstlast(*alst)->next = new;
-		else
-			*alst = new;
-	}
+	char	str[20];
+
+	if (ft_mystrlcpy(str, "Ceci est une chaîne de test.", 20) == 29)
+		return (0);
+	else
+		return (-1);
 }
