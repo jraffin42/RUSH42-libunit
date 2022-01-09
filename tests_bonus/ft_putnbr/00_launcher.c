@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 11:48:46 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:34:30 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/10 00:37:04 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_putnbr_launcher(void)
 {
 	t_unit_test		unit_test;
 	static t_test	test_list[] = {
-		(t_test){"basic test", &ft_putnbr_output_test, "01_output_test.txt"},
+		(t_test){"wrong output test", &ft_putnbr_wrong_output_test, "01.txt"},
 		(t_test){NULL, NULL, NULL}
 	};
 
