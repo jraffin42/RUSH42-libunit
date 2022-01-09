@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_my_strlcpy_tests.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 17:07:58 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 19:24:32 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:08:51 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 19:36:41 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#ifndef FT_MY_STRLCPY_TESTS_H
+# define FT_MY_STRLCPY_TESTS_H
 
-size_t	ft_mystrlcpy(char *dst, const char *src, size_t size)
-{
-	size_t	i;
+# include <stddef.h>
 
-	i = 0;
-	while (src[i] && (i + 1) < size)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	if (i < size)
-		dst[i] = '\0';
-	return (i);
-}
+size_t	ft_my_strlcpy(char *dst, const char *src, size_t size);
+
+int		ft_my_strlcpy_launcher(void);
+int		ft_my_strlcpy_ok_test(void);
+int		ft_my_strlcpy_ko_test(void);
+int		ft_my_strlcpy_sigsegv_test(void);
+int		ft_my_strlcpy_sigbus_test(void);
+
+#endif

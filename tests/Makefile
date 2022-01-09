@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 19:24:38 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 19:38:07 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCDIR				:=	.
 
 OBJDIR				:=	./obj
 
-SRCFILES			:=	ft_mystrlcpy.c
+SRCFILES			:=	ft_my_strlcpy.c
 
 TESTFILES			:=	$(wildcard */[0-9][0-9]_*.c)
 
