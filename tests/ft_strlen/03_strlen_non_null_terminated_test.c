@@ -10,12 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "tests_ft_strlen.h"
 
 int	strlen_non_null_terminated_test(void)
 {
-	char	str[1];
+	char	*str;
 
+	str = ft_calloc(0);
 	str[0] = 'X';
 	if (ft_strlen(str) == 1)
 		return (0);

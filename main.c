@@ -10,16 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "tests_ft_calloc.h"
 #include "tests_ft_strlen.h"
 #include "tests_ft_sum.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
-	if (!s)
-		return (0);
 	i = 0;
 	while (s[i])
 		i++;
@@ -32,10 +32,35 @@ size_t	ft_sum(size_t x, size_t y)
 	return (z);
 }
 
+void	*ft_memset(void *b, int c, size_t len)
+{
+	unsigned char	*a;
+
+	a = b;
+	while (len-- > 0)
+		*a++ = c;
+	return (b);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+    void    *ptr;
+    char    c;
+
+    c = '\0';
+    ptr = malloc(nmemb * size);
+    if (!ptr)
+        return (0);
+    ft_memset(ptr, c, size * nmemb);
+    return (ptr);
+}
+
 int	main(void)
 {
 	strlen_launcher();
 	write(1, "\n", 1);
 	sum_launcher();
+	write(1, "\n", 1);
+	calloc_launcher();
 	return (0);
 }
