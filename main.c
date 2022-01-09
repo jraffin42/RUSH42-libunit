@@ -3,62 +3,46 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 14:17:53 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 15:56:56 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
-#include "tests_ft_strlen.h"
-#include "tests_ft_sum.h"
+#include <stdlib.h>
 #include <unistd.h>
+#include <signal.h>
+#include <wait.h>
 #include <stdlib.h>
 
-size_t	ft_strlen(const char *s)
+int	process(void)
 {
-	size_t	i;
+	size_t	size;
+	void	*ptr;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
-size_t	ft_sum(size_t x, size_t y)
-{
-	size_t	z;
-
-	z = x + y;
-	return (z);
-}
-
-int	silly_buserror_function(int i)
-{
-/*	void	*ptr;
-	char	*pc;
-	int		*pi;
-
-	pi = &i;
-	pc = (char *)pi;
-	pc = pc + 1;
-	ptr = pc;
-	pi = (int *)ptr;*/
-	char	c;
-
-	c = '0' + i;
-	write(1, c, 1);
-	return (0);
+	size = -1;
+	size /= size + 1;
+	ptr = malloc(size);
+	free(ptr);
+	return (!ptr);
 }
 
 int	main(void)
 {
-	int	error;
+	int	wstatus;
 
-	error = 0;
-	error |= ft_strlen_launcher();
-	error |= bus_error_test_launcher();
-	error |= ft_sum_launcher();
-	return (error == -1);
+	if (!fork())
+		exit(process());
+	wait(&wstatus);
+	if (WIFEXITED(wstatus))
+	{
+		write (1, "EXIT !\n", 7);
+		return (WEXITSTATUS(wstatus));
+	}
+	if (WIFSIGNALED(wstatus))
+	{
+		write (1, "SIGNALED !\n", 11);
+		return (WTERMSIG(wstatus));
+	}
 }
