@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 12:30:01 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 13:09:58 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,19 @@ static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 
 int	launch_tests(t_unit_test *tests)
 {
+	t_test	*current_test;
 	size_t	total_tests;
 	size_t	succeeded_tests;
 
 	total_tests = 0;
 	succeeded_tests = 0;
-	while (tests->current_test->name)
+	current_test = tests->test_array;
+	while (current_test->name)
 	{
 		total_tests++;
 		succeeded_tests += !run_a_test(tests->function_name,
-				tests->current_test->name, tests->current_test->func);
-		tests->current_test++;
+				current_test->name, current_test->func);
+		current_test++;
 	}
 	if (write_positive_number(succeeded_tests) < 0 || write(1, "/", 1) < 0
 		|| write_positive_number(total_tests) < 0

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 12:27:49 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 12:44:14 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 12:58:52 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,6 @@ int	ft_sum_launcher(void)
 	{NULL}};
 
 	unit_test.function_name = "ft_sum";
-	unit_test.current_test = test_list;
+	unit_test.test_array = test_list;
 	return (launch_tests(&unit_test));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 12:42:18 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 13:10:09 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 int	main(void)
 {
-	if (0
-		|| ft_strlen_launcher()
-		|| ft_calloc_launcher()
-		|| ft_sum_launcher()
-	)
-		return (1);
+	int	error;
+
+	error = 0;
+	error |= ft_strlen_launcher();
+	error |= ft_calloc_launcher();
+	error |= ft_sum_launcher();
+	return (error == -1);
 }

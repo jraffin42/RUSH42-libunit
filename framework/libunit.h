@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:52:46 by agautier          #+#    #+#             */
-/*   Updated: 2022/01/08 20:02:40 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 12:58:53 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_test
 typedef struct s_unit_test_block
 {
 	char	*function_name;
-	t_test	*current_test;
+	t_test	*test_array;
 }	t_unit_test;
 
 int		write_positive_number(size_t n);

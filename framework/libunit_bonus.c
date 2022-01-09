@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/08 18:56:47 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 12:58:52 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ int	launch_tests(t_unit_test *tests)
 
 	total_tests = 0;
 	succeeded_tests = 0;
-	while (tests->current_test)
+	while (tests->test_array)
 	{
 		total_tests++;
 		succeeded_tests += !run_a_test(tests->function_name,
-				tests->current_test->name, tests->current_test->func);
+				tests->test_array->name, tests->test_array->func);
 	}
 	if (succeeded_tests < total_tests)
 		return (-1);
