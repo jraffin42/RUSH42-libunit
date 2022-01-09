@@ -5,25 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:27:49 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 12:58:52 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 12:23:22 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 15:31:31 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libunit.h"
-#include "tests_ft_sum.h"
+#include "tests_bus_error_test.h"
 
-int	ft_sum_launcher(void)
+int	bus_error_test_launcher(void)
 {
 	t_unit_test		unit_test;
 	static t_test	test_list[] = {
-		(t_test){"Basic test", &ft_sum_test_1},
-		(t_test){"NULL test", &ft_sum_test_2},
-		(t_test){"Bigger string test", &ft_sum_test_3},
+		(t_test){"OK test", &ok_test},
+		(t_test){"KO test", &ko_test},
+		(t_test){"SIGSEGV test", &sigsegv_test},
+		(t_test){"SIGBUS test", &sigbus_test},
 	{NULL}};
 
-	unit_test.function_name = "ft_sum";
+	unit_test.function_name = "ft_calloc";
 	unit_test.test_array = test_list;
 	return (launch_tests(&unit_test));
 }

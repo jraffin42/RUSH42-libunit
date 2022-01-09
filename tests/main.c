@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_test.c                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:26:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 12:27:00 by schaehun         ###   ########.fr       */
+/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 14:51:34 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_ft_sum.h"
-
-int	ft_sum_test_2(void)
+int	main(void)
 {
-	if (ft_sum(-5, 12) == 7)
-		return (0);
-	else
-		return (-1);
+	int	error;
+
+	error = 0;
+	error |= ft_strlen_launcher();
+	error |= bus_error_test_launcher();
+	error |= ft_sum_launcher();
+	return (error == -1);
 }
