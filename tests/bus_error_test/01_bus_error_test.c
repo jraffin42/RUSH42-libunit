@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tests_ft_calloc.h                                  :+:      :+:    :+:   */
+/*   01_bus_error_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:47 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 12:40:17 by schaehun         ###   ########.fr       */
+/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 14:05:58 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TESTS_FT_CALLOC_H
-# define TESTS_FT_CALLOC_H
+#include "tests_bus_error_test.h"
 
-# include <stddef.h>
-
-void	*ft_calloc(size_t nmemb, size_t size);
-
-int		ft_calloc_launcher(void);
-int		ft_calloc_test_01(void);
-//int		ft_calloc_test_02(void);
-//int		ft_calloc_test_03(void);
-
-#endif
+int	bus_error_test(void)
+{
+	if (silly_buserror_function(42))
+		return (0);
+	else
+		return (-1);
+}

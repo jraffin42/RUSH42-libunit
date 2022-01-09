@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 13:10:09 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 14:17:53 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_ft_calloc.h"
+#include "tests_bus_error_test.h"
 #include "tests_ft_strlen.h"
 #include "tests_ft_sum.h"
 #include <unistd.h>
@@ -34,18 +34,22 @@ size_t	ft_sum(size_t x, size_t y)
 	return (z);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	silly_buserror_function(int i)
 {
-	long long int	*ptr;
-	size_t			len;
+/*	void	*ptr;
+	char	*pc;
+	int		*pi;
 
-	len = nmemb * size;
-	ptr = malloc(len);
-	if (!ptr)
-		return (0);
-	while (len--)
-		ptr[len] = 0;
-	return (ptr);
+	pi = &i;
+	pc = (char *)pi;
+	pc = pc + 1;
+	ptr = pc;
+	pi = (int *)ptr;*/
+	char	c;
+
+	c = '0' + i;
+	write(1, c, 1);
+	return (0);
 }
 
 int	main(void)
@@ -54,7 +58,7 @@ int	main(void)
 
 	error = 0;
 	error |= ft_strlen_launcher();
-	error |= ft_calloc_launcher();
+	error |= bus_error_test_launcher();
 	error |= ft_sum_launcher();
 	return (error == -1);
 }

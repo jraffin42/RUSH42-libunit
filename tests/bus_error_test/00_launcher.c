@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 12:23:22 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 13:07:29 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 14:00:23 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libunit.h"
-#include "tests_ft_calloc.h"
+#include "tests_bus_error_test.h"
 
-int	ft_calloc_launcher(void)
+int	bus_error_test_launcher(void)
 {
 	t_unit_test		unit_test;
 	static t_test	test_list[] = {
-		(t_test){"BUS ERROR test", &ft_calloc_test_01},
+		(t_test){"BUS ERROR test", &bus_error_test},
 	{NULL}};
 
 	unit_test.function_name = "ft_calloc";
