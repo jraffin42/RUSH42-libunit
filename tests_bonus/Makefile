@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 22:30:58 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 22:31:12 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,9 @@ SRCDIR				:=	.
 
 OBJDIR				:=	./obj
 
-SRCFILES			:=	ft_my_strlcpy.c
+SRCFILES			:=	ft_my_strlcpy.c		\
+						ft_putnbr.c			\
+						ft_sqrt.c
 
 TESTFILES			:=	$(wildcard */[0-9][0-9]_*.c)
 
@@ -67,7 +69,7 @@ $(OUTDIR)			:
 	mkdir $(OUTDIR)
 
 $(LIBUNIT)			:
-	$(MAKE)	-C	$(dir $(LIBUNIT))
+	$(MAKE)	-C	$(dir $(LIBUNIT)) bonus
 
 clean				:
 	$(RM) -rf $(OBJDIR) $(DEBUGDIR)
@@ -79,4 +81,4 @@ fclean				:	clean
 
 re					:	fclean $(NAME)
 
-.PHONY				:	all test clean fclean re
+.PHONY				:	all bonus test debug clean fclean re

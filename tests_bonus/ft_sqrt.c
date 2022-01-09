@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:06:41 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 21:19:19 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 21:20:07 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
-
-int	ft_my_strlcpy_sigsegv_test(void)
+int	ft_sqrt(int nb)
 {
-	if (ft_my_strlcpy((void *)-1, (void *)-1, 100) == 29)
-		return (0);
-	else
-		return (-1);
+	int	i;
+
+	i = 0;
+	while (i <= nb)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (0);
 }

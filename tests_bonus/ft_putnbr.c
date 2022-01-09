@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:06:41 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 21:28:08 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 22:31:31 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include <unistd.h>
 
-int	ft_my_strlcpy_sigsegv_test(void)
+void	ft_putnbr(int n)
 {
-	if (ft_my_strlcpy((void *)-1, (void *)-1, 100) == 29)
-		return (0);
-	else
-		return (-1);
+	static char	buf[11];
+	int			neg;
+	int			i;
+
+	neg = (n < 0);
+	if (n > 0)
+		n = -n;
+	i = 10;
+	buf[i] = '0' - (n % 10);
+	n /= 10;
+	while (n)
+	{
+		buf[--i] = '0' - (n % 10);
+		n /= 10;
+	}
+	if (neg)
+		buf[--i] = '-';
+	write(1, buf + i, 11 - i);
 }

@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 19:18:18 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 22:05:02 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,19 @@
 #include <sys/types.h>
 #include "libunit.h"
 
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	if (!s)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 {
 	int		wstatus;
-	char	*result;
 
-	write(1, "\e[0;36m", 7);
-	write(1, func_name, ft_strlen(func_name));
-	write(1, "\e[0;0m : ", 9);
-	write(1, test_name, ft_strlen(test_name));
-	write(1, " : ", 3);
+	write_char_string_stdout("\e[0;36m");
+	write_char_string_stdout(func_name);
+	write_char_string_stdout("\e[0;0m : ");
+	write_char_string_stdout(test_name);
+	write_char_string_stdout(" : ");
 	if (!fork())
-		exit(test_func() == -1);
+		exit(test_func());
 	wait(&wstatus);
-	result = result_msg(wstatus);
-	if (write(1, result, ft_strlen(result)) < 0
-		|| write (1, "\n", 1) < 0)
-		NULL;
+	write_char_string_stdout(result_msg(wstatus));
 	return (!WIFEXITED(wstatus) || WEXITSTATUS(wstatus));
 }
 
@@ -56,7 +40,7 @@ int	launch_tests(t_unit_test *tests)
 
 	total_tests = 0;
 	succeeded_tests = 0;
-	write(1, "\n", 1);
+	write_char_string_stdout("\n");
 	current_test = tests->test_array;
 	while (current_test->name)
 	{
@@ -65,10 +49,10 @@ int	launch_tests(t_unit_test *tests)
 				current_test->name, current_test->func);
 		current_test++;
 	}
-	if (write_positive_number(succeeded_tests) < 0 || write(1, "/", 1) < 0
-		|| write_positive_number(total_tests) < 0
-		|| write(1, " tests checked\n", 15) < 0)
-		NULL;
+	write_positive_number(succeeded_tests);
+	write_char_string_stdout("/");
+	write_positive_number(total_tests);
+	write_char_string_stdout(" tests checked\n");
 	if (succeeded_tests < total_tests)
 		return (-1);
 	return (0);

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr_tests.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:06:41 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:08:51 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 22:33:37 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#ifndef FT_PUTNBR_TESTS_H
+# define FT_PUTNBR_TESTS_H
 
-int	ft_my_strlcpy_sigsegv_test(void)
-{
-	if (ft_my_strlcpy((void *)-1, (void *)-1, 100) == 29)
-		return (0);
-	else
-		return (-1);
-}
+void	ft_putnbr(int n);
+
+int		ft_putnbr_launcher(void);
+int		ft_putnbr_output_test(void);
+
+#endif

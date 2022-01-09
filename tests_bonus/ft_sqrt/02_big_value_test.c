@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   02_big value_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:06:41 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 21:24:10 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include "ft_sqrt_tests.h"
 
-int	ft_my_strlcpy_sigsegv_test(void)
+int	ft_sqrt_big_value_test(void)
 {
-	if (ft_my_strlcpy((void *)-1, (void *)-1, 100) == 29)
+	if (ft_sqrt(2147483647) == 46340)
 		return (0);
 	else
 		return (-1);

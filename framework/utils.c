@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:08:14 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 19:10:59 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 22:45:15 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,17 @@
 #include <signal.h>
 #include <sys/wait.h>
 
-char	*result_msg(int wstatus)
+void	write_char_string_stdout(const char *str)
 {
-	if (WIFEXITED(wstatus))
-	{
-		if (WEXITSTATUS(wstatus) == 0)
-			return ("\e[0;92m[OK]\e[0;0m");
-		return ("\e[0;91m[KO]\e[0;0m");
-	}
-	if (!WIFSIGNALED(wstatus))
-		return ("");
-	if (WTERMSIG(wstatus) == SIGSEGV)
-		return ("\e[0;35m[SIGSEGV]\e[0;0m");
-	if (WTERMSIG(wstatus) == SIGBUS)
-		return ("\e[0;35m[SIGBUS]\e[0;0m");
-	if (WTERMSIG(wstatus) == SIGABRT)
-		return ("\e[0;35m[SIGABRT]\e[0;0m");
-	if (WTERMSIG(wstatus) == SIGFPE)
-		return ("\e[0;35m[SIGFPE]\e[0;0m");
-	if (WTERMSIG(wstatus) == SIGPIPE)
-		return ("\e[0;35m[SIGPIPE]\e[0;0m");
-	if (WTERMSIG(wstatus) == SIGILL)
-		return ("\e[0;35m[SIGILL]\e[0;0m");
-	return ("result");
+	size_t	len;
+
+	len = 0;
+	while (str[len])
+		len++;
+	write(1, str, len);
 }
 
-int	write_positive_number(size_t n)
+void	write_positive_number(size_t n)
 {
 	size_t	div;
 	char	c;
@@ -51,10 +36,37 @@ int	write_positive_number(size_t n)
 	{
 		c = (n / div);
 		div /= 10;
-		if (write(1, &c, 1) < 0)
-			return (-1);
+		write(1, &c, 1);
 	}
 	c = n + '0';
 	write(1, &c, 1);
-	return (0);
+}
+
+char	*result_msg(int wstatus)
+{
+	if (WIFEXITED(wstatus))
+	{
+		if (WEXITSTATUS(wstatus) == 0)
+			return ("\e[0;92m[OK]\e[0;0m");
+		if (WEXITSTATUS(wstatus) == 2)
+			return ("\e[0;93m[TIMEOUT]\e[0;0m");
+		else
+			return ("\e[0;91m[KO]\e[0;0m");
+	}
+	if (WIFSIGNALED(wstatus))
+	{
+		if (WTERMSIG(wstatus) == SIGSEGV)
+			return ("\e[0;95m[SIGSEGV]\e[0;0m");
+		if (WTERMSIG(wstatus) == SIGBUS)
+			return ("\e[0;95m[SIGBUS]\e[0;0m");
+		if (WTERMSIG(wstatus) == SIGABRT)
+			return ("\e[0;95m[SIGABRT]\e[0;0m");
+		if (WTERMSIG(wstatus) == SIGFPE)
+			return ("\e[0;95m[SIGFPE]\e[0;0m");
+		if (WTERMSIG(wstatus) == SIGPIPE)
+			return ("\e[0;95m[SIGPIPE]\e[0;0m");
+		if (WTERMSIG(wstatus) == SIGILL)
+			return ("\e[0;95m[SIGILL]\e[0;0m");
+	}
+	return ("result error !");
 }

@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_sigsegv_test.c                                  :+:      :+:    :+:   */
+/*   00_launcher.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/08 13:05:20 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:06:41 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/08 11:48:46 by jraffin           #+#    #+#             */
+/*   Updated: 2022/01/09 22:34:30 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include <stddef.h>
+#include "libunit_bonus.h"
+#include "ft_putnbr_tests.h"
 
-int	ft_my_strlcpy_sigsegv_test(void)
+int	ft_putnbr_launcher(void)
 {
-	if (ft_my_strlcpy((void *)-1, (void *)-1, 100) == 29)
-		return (0);
-	else
-		return (-1);
+	t_unit_test		unit_test;
+	static t_test	test_list[] = {
+		(t_test){"basic test", &ft_putnbr_output_test, "01_output_test.txt"},
+		(t_test){NULL, NULL, NULL}
+	};
+
+	unit_test.function_name = "ft_putnbr";
+	unit_test.test_array = test_list;
+	return (launch_tests(&unit_test));
 }

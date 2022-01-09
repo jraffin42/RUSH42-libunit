@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 19:11:23 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 22:25:34 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ COMMONSRCS			:=	utils.c
 
 NOBONUSSRCS			:=	libunit.c
 
-BONUSSRCS			:=	libunit_bonus.c
+BONUSSRCS			:=	libunit_bonus.c		\
+						utils_bonus.c
 
 CC					:=	cc
 AR					:=	ar
@@ -51,7 +52,7 @@ $(NAME)				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,
 all					:	$(NAME)
 
 bonus				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
-	$(AR) $(ARFLAGS) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
+	$(AR) $(ARFLAGS) $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
 
 $(OUTDIR)			:
 	mkdir $(OUTDIR)
