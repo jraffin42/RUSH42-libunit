@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "tests_ft_strlen.h"
+#include "tests_ft_sum.h"
+#include <unistd.h>
 
 size_t	ft_strlen(const char *s)
 {
@@ -24,17 +26,16 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+size_t	ft_sum(size_t x, size_t y)
+{
+	size_t z = x + y;
+	return (z);
+}
+
 int	main(void)
 {
-	if (0
-		|| strlen_launcher()
-		|| strlen_launcher()
-		|| strlen_launcher()
-		|| strlen_launcher()
-		|| strlen_launcher()
-		|| strlen_launcher()
-		|| strlen_launcher()
-	)
-		return (1);
+	strlen_launcher();
+	write(1, "\n", 1);
+	sum_launcher();
 	return (0);
 }

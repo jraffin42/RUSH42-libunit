@@ -47,7 +47,7 @@ int	write_positive_number(size_t n)
 	div = 1;
 	while (n / div >= 10)
 		div *= 10;
-	while (div)
+	while (div > 9)
 	{
 		c = (n / div);
 		n -= c * div;
@@ -55,5 +55,7 @@ int	write_positive_number(size_t n)
 		if (write(1, &c, 1) < 0)
 			return (-1);
 	}
+	c = n + '0';
+	write(1, &c, 1);
 	return (0);
 }

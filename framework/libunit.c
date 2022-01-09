@@ -28,17 +28,23 @@ static size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+void	tabulator(size_t len)
+{
+	while (len++ < 4)
+		write(1, "\t", 1);
+}
+
 static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 {
 	int		wstatus;
 	char	*result;
 
-	if (write(1, "\e[0;36m", 7) < 0
-		|| write(1, func_name, ft_strlen(func_name)) < 0
-		|| write(1, "\e[0;0m : ", 9) < 0
-		|| write(1, test_name, ft_strlen(test_name)) < 0
-		|| write(1, " : ", 3) < 0)
-		NULL;
+	write(1, "\e[0;36m", 7);
+	write(1, func_name, ft_strlen(func_name));
+	tabulator(ft_strlen(func_name) / 7);
+	write(1, "\e[0;0m : ", 9);
+	write(1, test_name, ft_strlen(test_name));
+	tabulator(ft_strlen(test_name) / 7);
 	if (!fork())
 		exit(test_func() == -1);
 	wait(&wstatus);
@@ -48,6 +54,8 @@ static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 		NULL;
 	return (!WIFEXITED(wstatus) || WEXITSTATUS(wstatus));
 }
+
+#include <stdio.h>
 
 int	launch_tests(t_unit_test *tests)
 {
@@ -65,7 +73,7 @@ int	launch_tests(t_unit_test *tests)
 	}
 	if (write_positive_number(succeeded_tests) < 0 || write(1, "/", 1) < 0
 		|| write_positive_number(total_tests) < 0
-		|| write(1, " tests checked\n", 1) < 0)
+		|| write(1, " tests checked\n", 15) < 0)
 		NULL;
 	if (succeeded_tests < total_tests)
 		return (-1);
