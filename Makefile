@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/08 19:56:24 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/09 13:35:33 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,17 +63,19 @@ $(OUTDIR)/%.o		:	$(SRCDIRS)/%.c | $(OUTDIR)
 $(NAME)				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o))
 	$(AR) $(ARFLAGS) $(SANITIZE) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o))
 
+all					:	$(NAME)
+
 bonus				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
 	$(AR) $(ARFLAGS) $(SANITIZE) -o $(NAME) $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(BONUSSRCS:.c=.o))
 
-test				:	$(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o)) $(NAME)
+libunit_test		:	$(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o)) $(NAME)
 	$(CC) $(CCFLAGS) $(SANITIZE) -o libunit_test $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o)) $(NAME)
-	./libunit_test
+
+test				:	libunit_test
+	./libunit_test || true
 
 debug				:	$(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o))
 	$(CC) $(CCFLAGS) -g $(SANITIZE) -o libunit_test.debug $(addprefix $(OUTDIR)/,$(COMMONSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(NOBONUSSRCS:.c=.o)) $(addprefix $(OUTDIR)/,$(TESTFILES:.c=.o))
-
-all					:	$(NAME)
 
 $(OUTDIR)			:
 	mkdir $(OUTDIR)
@@ -86,4 +88,4 @@ fclean				:	clean
 
 re					:	fclean $(NAME)
 
-.PHONY				:	all clean fclean re
+.PHONY				:	all bonus test debug clean fclean re
