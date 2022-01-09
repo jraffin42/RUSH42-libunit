@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 11:38:50 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 12:42:18 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,34 +34,26 @@ size_t	ft_sum(size_t x, size_t y)
 	return (z);
 }
 
-void	*ft_memset(void *b, int c, size_t len)
-{
-	unsigned char	*a;
-
-	a = b;
-	while (len-- > 0)
-		*a++ = c;
-	return (b);
-}
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-    void    *ptr;
-    char    c;
+	long long int	*ptr;
+	size_t			len;
 
-    c = '\0';
-    ptr = malloc(nmemb * size);
-    if (!ptr)
-        return (0);
-    ft_memset(ptr, c, size * nmemb);
-    return (ptr);
+	len = nmemb * size;
+	ptr = malloc(len);
+	if (!ptr)
+		return (0);
+	while (len--)
+		ptr[len] = 0;
+	return (ptr);
 }
 
 int	main(void)
 {
 	if (0
-		|| strlen_launcher()
-		|| sum_launcher()
+		|| ft_strlen_launcher()
+		|| ft_calloc_launcher()
+		|| ft_sum_launcher()
 	)
 		return (1);
 }

@@ -12,7 +12,7 @@
 
 #include "tests_ft_strlen.h"
 
-int	strlen_null_test(void)
+int	ft_strlen_null_test(void)
 {
 	ft_strlen(NULL);
 	return (0);

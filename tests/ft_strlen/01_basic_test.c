@@ -12,7 +12,7 @@
 
 #include "tests_ft_strlen.h"
 
-int	strlen_basic_test(void)
+int	ft_strlen_basic_test(void)
 {
 	if (ft_strlen("Ceci est une chaîne de test.") == 29)
 		return (0);

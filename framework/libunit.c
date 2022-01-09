@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libunit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/08 20:21:58 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 12:30:01 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,6 @@ static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 		NULL;
 	return (!WIFEXITED(wstatus) || WEXITSTATUS(wstatus));
 }
-
-#include <stdio.h>
 
 int	launch_tests(t_unit_test *tests)
 {

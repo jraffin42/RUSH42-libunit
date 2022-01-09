@@ -49,7 +49,7 @@ int	write_positive_number(size_t n)
 		div *= 10;
 	while (div >= 10)
 	{
-		c = '0' + ((n / div) % 0);
+		c = (n / div);
 		div /= 10;
 		if (write(1, &c, 1) < 0)
 			return (-1);

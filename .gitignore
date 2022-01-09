@@ -1,4 +1,4 @@
-./obj
+obj/
 libunit.a
 libunit_test
 libunit_test.debug

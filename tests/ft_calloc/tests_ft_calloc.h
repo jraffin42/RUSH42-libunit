@@ -1,13 +1,25 @@
-#ifndef TESTS_STRLEN_H
-# define TESTS_STRLEN_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tests_ft_calloc.h                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/01/09 12:21:47 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 12:40:17 by schaehun         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef TESTS_FT_CALLOC_H
+# define TESTS_FT_CALLOC_H
 
 # include <stddef.h>
 
-size_t	ft_strlen(const char *str);
+void	*ft_calloc(size_t nmemb, size_t size);
 
-int		calloc_launcher(void);
-int		calloc_test_01(void);
-//int		calloc_test_02(void);
-//int		calloc_test_03(void);
+int		ft_calloc_launcher(void);
+int		ft_calloc_test_01(void);
+//int		ft_calloc_test_02(void);
+//int		ft_calloc_test_03(void);
 
 #endif
