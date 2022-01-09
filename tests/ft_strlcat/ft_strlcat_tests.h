@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_basic_test_1.c                                  :+:      :+:    :+:   */
+/*   ft_strlcat_tests.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 16:22:33 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 16:50:34 by schaehun         ###   ########.fr       */
+/*   Created: 2022/01/09 16:14:42 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 21:01:11 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_isalnum_tests.h"
+#ifndef FT_STRLCAT_TESTS_H
+# define FT_STRLCAT_TESTS_H
 
-int	basic_test_1(void)
-{
-	if (ft_isalnum('4') == 1)
-		return (0);
-	else
-		return (-1);
-}
+# include <stddef.h>
+
+size_t	ft_strlcat(char *dst, const char *src, size_t size);
+
+int		ft_strlcat_launcher(void);
+int		basic_test_1(void);
+int		basic_test_2(void);
+int		basic_test_3(void);
+int		basic_test_4(void);
+
+#endif

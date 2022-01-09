@@ -6,15 +6,15 @@
 /*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 15:55:22 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 16:50:23 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 20:55:46 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libunit.h"
-#include "ft_isalnum_tests.h"
+#include "ft_strlcat_tests.h"
 
-int	ft_isalnum_launcher(void)
+int	ft_strlcat_launcher(void)
 {
 	t_unit_test		unit_test;
 	static t_test	test_list[] = {
@@ -24,7 +24,7 @@ int	ft_isalnum_launcher(void)
 		(t_test){"test_4", &basic_test_4},
 	{NULL}};
 
-	unit_test.function_name = "ft_isalnum";
+	unit_test.function_name = "ft_strlcat";
 	unit_test.test_array = test_list;
 	return (launch_tests(&unit_test));
 }
