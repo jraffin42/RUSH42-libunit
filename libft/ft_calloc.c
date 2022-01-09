@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_big_value_test.c                                :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 22:52:53 by jraffin          ###   ########.fr       */
+/*   Created: 2021/11/24 22:51:35 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 20:12:45 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sqrt_tests.h"
+#include "libft.h"
 
-int	ft_sqrt_big_value_test(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (ft_sqrt(2147483647) == 46340)
+	void	*ptr;
+	char	c;
+
+	c = '\0';
+	ptr = malloc(nmemb * size);
+	if (!ptr)
 		return (0);
-	else
-		return (-1);
+	ft_memset(ptr, c, size * nmemb);
+	return (ptr);
 }

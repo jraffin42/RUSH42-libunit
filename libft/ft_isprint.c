@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_big_value_test.c                                :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 22:52:53 by jraffin          ###   ########.fr       */
+/*   Created: 2021/11/22 18:43:09 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 16:10:53 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sqrt_tests.h"
+#include "libft.h"
 
-int	ft_sqrt_big_value_test(void)
+int	ft_isprint(int c)
 {
-	if (ft_sqrt(2147483647) == 46340)
-		return (0);
+	if (c >= 32 && c <= 126)
+		return (1);
 	else
-		return (-1);
+		return (0);
 }

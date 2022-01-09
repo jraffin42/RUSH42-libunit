@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_big_value_test.c                                :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 22:52:53 by jraffin          ###   ########.fr       */
+/*   Created: 2021/12/03 16:51:00 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/08 19:47:52 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sqrt_tests.h"
-
-int	ft_sqrt_big_value_test(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (ft_sqrt(2147483647) == 46340)
-		return (0);
-	else
-		return (-1);
+	unsigned int	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }

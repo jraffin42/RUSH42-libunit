@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   02_big_value_test.c                                :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 22:52:53 by jraffin          ###   ########.fr       */
+/*   Created: 2021/11/22 18:53:48 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 16:11:13 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_sqrt_tests.h"
+#include "libft.h"
 
-int	ft_sqrt_big_value_test(void)
+size_t	ft_strlen(const char *s)
 {
-	if (ft_sqrt(2147483647) == 46340)
-		return (0);
-	else
-		return (-1);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
