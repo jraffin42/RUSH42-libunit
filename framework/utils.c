@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 19:08:14 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/08 19:37:22 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:35:23 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ int	write_positive_number(size_t n)
 	div = 1;
 	while (n / div >= 10)
 		div *= 10;
-	while (div > 9)
+	while (div >= 10)
 	{
-		c = (n / div);
-		n -= c * div;
-		c += '0';
+		c = '0' + ((n / div) % 0);
+		div /= 10;
 		if (write(1, &c, 1) < 0)
 			return (-1);
 	}

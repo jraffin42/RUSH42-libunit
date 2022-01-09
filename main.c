@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/08 19:41:41 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 11:38:50 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,17 @@ size_t	ft_strlen(const char *s)
 
 size_t	ft_sum(size_t x, size_t y)
 {
-	size_t z = x + y;
+	size_t	z;
+
+	z = x + y;
 	return (z);
 }
 
 int	main(void)
 {
-	strlen_launcher();
-	write(1, "\n", 1);
-	sum_launcher();
-	return (0);
+	if (0
+		|| strlen_launcher()
+		|| sum_launcher()
+	)
+		return (1);
 }
