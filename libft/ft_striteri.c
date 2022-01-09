@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_bus_error_test.c                                :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:42:35 by schaehun         ###   ########.fr       */
+/*   Created: 2021/12/03 16:51:00 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/08 19:47:52 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
-
-int	bus_error_test(void)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (silly_buserror_function())
-		return (0);
-	else
-		return (-1);
+	unsigned int	i;
+
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (s[i])
+	{
+		(*f)(i, &s[i]);
+		i++;
+	}
 }

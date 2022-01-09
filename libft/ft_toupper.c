@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_bus_error_test.c                                :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:42:35 by schaehun         ###   ########.fr       */
+/*   Created: 2021/11/23 20:57:47 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 16:13:23 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
+#include "libft.h"
 
-int	bus_error_test(void)
+int	ft_toupper(int c)
 {
-	if (silly_buserror_function())
-		return (0);
-	else
-		return (-1);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }

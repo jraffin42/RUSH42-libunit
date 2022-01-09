@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_bus_error_test.c                                :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:42:35 by schaehun         ###   ########.fr       */
+/*   Created: 2021/11/22 19:19:44 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 16:12:03 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
+#include "libft.h"
 
-int	bus_error_test(void)
+void	ft_bzero(void *s, size_t n)
 {
-	if (silly_buserror_function())
-		return (0);
-	else
-		return (-1);
+	unsigned char	*str;
+
+	str = s;
+	while (n-- > 0)
+		*str++ = '\0';
 }

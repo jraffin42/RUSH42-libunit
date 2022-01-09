@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_bus_error_test.c                                :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:42:35 by schaehun         ###   ########.fr       */
+/*   Created: 2021/11/24 22:51:35 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 20:12:45 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
+#include "libft.h"
 
-int	bus_error_test(void)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	if (silly_buserror_function())
+	void	*ptr;
+	char	c;
+
+	c = '\0';
+	ptr = malloc(nmemb * size);
+	if (!ptr)
 		return (0);
-	else
-		return (-1);
+	ft_memset(ptr, c, size * nmemb);
+	return (ptr);
 }

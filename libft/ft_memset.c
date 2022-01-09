@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_bus_error_test.c                                :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/09 12:21:59 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:42:35 by schaehun         ###   ########.fr       */
+/*   Created: 2021/11/22 18:58:13 by schaehun          #+#    #+#             */
+/*   Updated: 2021/12/02 16:11:49 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tests_bus_error_test.h"
+#include "libft.h"
 
-int	bus_error_test(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	if (silly_buserror_function())
-		return (0);
-	else
-		return (-1);
+	unsigned char	*a;
+
+	a = b;
+	while (len-- > 0)
+		*a++ = c;
+	return (b);
 }

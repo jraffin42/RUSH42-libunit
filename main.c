@@ -6,7 +6,7 @@
 /*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 14:17:53 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 14:43:50 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,12 @@ size_t	ft_sum(size_t x, size_t y)
 	return (z);
 }
 
-int	silly_buserror_function(int i)
+int	silly_buserror_function(void)
 {
-/*	void	*ptr;
-	char	*pc;
-	int		*pi;
+	char	*s;
 
-	pi = &i;
-	pc = (char *)pi;
-	pc = pc + 1;
-	ptr = pc;
-	pi = (int *)ptr;*/
-	char	c;
-
-	c = '0' + i;
-	write(1, c, 1);
+	s = "abc";
+	s[1] = 'd';
 	return (0);
 }
 

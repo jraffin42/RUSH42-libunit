@@ -6,7 +6,7 @@
 /*   By: schaehun <schaehun@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/09 12:21:47 by schaehun          #+#    #+#             */
-/*   Updated: 2022/01/09 14:05:57 by schaehun         ###   ########.fr       */
+/*   Updated: 2022/01/09 14:40:56 by schaehun         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stddef.h>
 
-int	silly_buserror_function(int i);
+int	silly_buserror_function(void);
 
 int	bus_error_test_launcher(void);
 int	bus_error_test(void);
