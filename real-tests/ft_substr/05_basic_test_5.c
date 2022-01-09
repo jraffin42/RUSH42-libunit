@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   05_basic_test_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schaehun <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/22 18:27:06 by schaehun          #+#    #+#             */
-/*   Updated: 2021/12/02 16:10:37 by schaehun         ###   ########.fr       */
+/*   Created: 2022/01/09 16:22:33 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/10 00:05:50 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_substr_tests.h"
 
-int	ft_isascii(int c)
+int	ft_substr_basic_test_5(void)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
+	if (ft_memcmp(ft_substr("0000010000", 4, 6), "010000", 6) == 0)
 		return (0);
+	else
+		return (-1);
 }

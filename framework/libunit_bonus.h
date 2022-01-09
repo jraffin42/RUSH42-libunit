@@ -6,14 +6,14 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 11:52:46 by agautier          #+#    #+#             */
-/*   Updated: 2022/01/09 22:27:03 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/09 23:01:36 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBUNIT_BONUS_H
 # define LIBUNIT_BONUS_H
 
-# define TIMEOUT_IN_SECONDS 3
+# define TIMEOUT_IN_SECONDS 1
 # define READ_BUFFER_SIZE 4096
 
 typedef struct s_test

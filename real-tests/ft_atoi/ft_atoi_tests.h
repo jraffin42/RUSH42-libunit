@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi_tests.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:14:42 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 23:50:51 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#ifndef FT_ATOI_TESTS_H
+# define FT_ATOI_TESTS_H
 
-int	main(void)
-{
-	int	error;
+# include <stddef.h>
 
-	error = 0;
-	error |= ft_my_strlcpy_launcher();
-	return (error);
-}
+int	ft_atoi(const char *nptr);
+
+int	ft_atoi_launcher(void);
+int	ft_atoi_basic_test_1(void);
+int	ft_atoi_basic_test_2(void);
+int	ft_atoi_basic_test_3(void);
+int	ft_atoi_basic_test_4(void);
+int	ft_atoi_basic_test_5(void);
+int	ft_atoi_basic_test_6(void);
+int	ft_atoi_basic_test_7(void);
+int	ft_atoi_basic_test_8(void);
+
+#endif

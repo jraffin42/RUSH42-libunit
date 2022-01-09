@@ -1,4 +1,3 @@
-obj/
-libunit.a
+obj
 libft_strlcpy.a
 libft_strlcpy.a.test

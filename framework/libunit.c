@@ -6,7 +6,7 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 13:15:33 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 22:05:02 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/10 00:21:10 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static int	run_a_test(char *func_name, char *test_name, int (*test_func)(void))
 		exit(test_func());
 	wait(&wstatus);
 	write_char_string_stdout(result_msg(wstatus));
+	write_char_string_stdout("\n");
 	return (!WIFEXITED(wstatus) || WEXITSTATUS(wstatus));
 }
 

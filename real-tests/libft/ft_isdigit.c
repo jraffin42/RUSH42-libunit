@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Created: 2021/11/22 16:38:17 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 23:07:16 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
-
-int	main(void)
+int	ft_isdigit(int c)
 {
-	int	error;
-
-	error = 0;
-	error |= ft_my_strlcpy_launcher();
-	return (error);
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   02_basic_test_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:22:33 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/10 00:06:35 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include "ft_tolower_tests.h"
 
-int	main(void)
+int	ft_tolower_basic_test_2(void)
 {
-	int	error;
-
-	error = 0;
-	error |= ft_my_strlcpy_launcher();
-	return (error);
+	if (ft_tolower('Z') == 'z')
+		return (0);
+	else
+		return (-1);
 }

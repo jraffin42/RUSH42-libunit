@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   07_basic_test_7.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:22:33 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/10 00:01:52 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include "ft_itoa_tests.h"
 
-int	main(void)
+int	ft_itoa_basic_test_7(void)
 {
-	int	error;
-
-	error = 0;
-	error |= ft_my_strlcpy_launcher();
-	return (error);
+	if (ft_memcmp(ft_itoa(-1), "-1", 2) == 0)
+		return (0);
+	else
+		return (-1);
 }

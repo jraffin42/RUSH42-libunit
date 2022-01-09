@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   05_basic_test_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Created: 2022/01/09 16:26:32 by schaehun          #+#    #+#             */
+/*   Updated: 2022/01/09 23:53:09 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include "ft_atoi_tests.h"
 
-int	main(void)
+int	ft_atoi_basic_test_5(void)
 {
-	int	error;
-
-	error = 0;
-	error |= ft_my_strlcpy_launcher();
-	return (error);
+	if (ft_atoi("a-42") == 0)
+		return (0);
+	else
+		return (-1);
 }
