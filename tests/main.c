@@ -6,11 +6,11 @@
 /*   By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 10:03:38 by jraffin           #+#    #+#             */
-/*   Updated: 2022/01/09 23:01:19 by jraffin          ###   ########.fr       */
+/*   Updated: 2022/01/12 15:12:54 by jraffin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_my_strlcpy_tests.h"
+#include "ft_my_strlcpy/ft_my_strlcpy_tests.h"
 
 int	main(void)
 {

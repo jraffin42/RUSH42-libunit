@@ -6,7 +6,7 @@
 #    By: jraffin <jraffin@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/12 14:25:17 by jraffin           #+#    #+#              #
-#    Updated: 2022/01/09 22:31:12 by jraffin          ###   ########.fr        #
+#    Updated: 2022/01/12 15:21:26 by jraffin          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ AR					:=	ar
 ARFLAGS				:=	crs
 RM					:=	rm
 
-CCFLAGS				:=	-Wall -Wextra -Werror
+CCFLAGS				:=	-Wall -Wextra -Werror -pthread
 
 DEBUGNAME			:= $(addsuffix .debug,$(LIBNAME))
 DEBUGDIR			:= $(addsuffix .debug,$(OBJDIR))
